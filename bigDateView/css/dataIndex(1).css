@@ -1,0 +1,291 @@
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: auto; }
+
+.margin {
+  width: 95%;
+  margin: auto;
+  padding-top: 3%;
+  padding-bottom: 6%; }
+
+#dataStatIndex {
+  width: 100%;
+  background: url("../icon/bj.png") no-repeat center;
+  background-size: 100% 100%; }
+  #dataStatIndex .mainLeft {
+    width: 25%;
+    float: left; }
+    #dataStatIndex .mainLeft .mLTop {
+      width: 100%;
+      background: #011D69;
+      border-radius: 10px;
+      padding: 8% 0;
+      margin-bottom: 10px;
+      overflow: hidden; }
+      #dataStatIndex .mainLeft .mLTop .mltl {
+        float: left; }
+      #dataStatIndex .mainLeft .mLTop .mltr {
+        float: left; }
+      #dataStatIndex .mainLeft .mLTop .c {
+        width: 50%; }
+        #dataStatIndex .mainLeft .mLTop .c .t {
+          overflow: hidden; }
+          #dataStatIndex .mainLeft .mLTop .c .t div {
+            float: left;
+            margin-left: 10%; }
+            #dataStatIndex .mainLeft .mLTop .c .t div span {
+              display: block;
+              color: #fff;
+              font-size: 20px; }
+            #dataStatIndex .mainLeft .mLTop .c .t div b {
+              color: #fff;
+              font-family: 'numbersettting';
+              font-size: 28px;
+              display: block;
+              margin-top: 10px; }
+          #dataStatIndex .mainLeft .mLTop .c .t i {
+            float: right;
+            color: #fff;
+            display: block;
+            height: 40px;
+            background: #fff;
+            width: 1px;
+            margin-top: 10px; }
+        #dataStatIndex .mainLeft .mLTop .c .cc {
+          overflow: hidden;
+          margin-top: 20px; }
+          #dataStatIndex .mainLeft .mLTop .c .cc div {
+            float: left;
+            margin-left: 10%; }
+            #dataStatIndex .mainLeft .mLTop .c .cc div span {
+              display: block;
+              color: #B8BED4;
+              font-size: 18px; }
+            #dataStatIndex .mainLeft .mLTop .c .cc div b {
+              color: #57FF57;
+              font-family: 'numbersettting';
+              font-size: 22px;
+              display: block;
+              margin-top: 10px; }
+          #dataStatIndex .mainLeft .mLTop .c .cc i {
+            float: right;
+            color: #fff;
+            display: block;
+            height: 40px;
+            background: #fff;
+            width: 1px;
+            margin-top: 10px; }
+        #dataStatIndex .mainLeft .mLTop .c .b {
+          overflow: hidden;
+          margin-top: 20px; }
+          #dataStatIndex .mainLeft .mLTop .c .b div {
+            width: 49%;
+            float: left;
+            text-align: center; }
+            #dataStatIndex .mainLeft .mLTop .c .b div span {
+              font-size: 12px;
+              color: #B8BED4; }
+            #dataStatIndex .mainLeft .mLTop .c .b div b {
+              color: #FF6803;
+              font-family: 'numbersettting';
+              font-size: 12px;
+              display: block;
+              margin-top: 10px; }
+          #dataStatIndex .mainLeft .mLTop .c .b i {
+            float: right;
+            color: #fff;
+            display: block;
+            height: 40px;
+            background: #fff;
+            width: 1px;
+            margin-top: 0px; }
+    #dataStatIndex .mainLeft .mLCenter {
+      width: 100%;
+      background: #011D69;
+      border-radius: 10px;
+      padding: 8% 0;
+      margin-bottom: 10px; }
+      #dataStatIndex .mainLeft .mLCenter h4 {
+        display: block;
+        font: 18px/30px "";
+        color: #fff;
+        margin-left: 8%; }
+    #dataStatIndex .mainLeft .mLBottom {
+      width: 100%;
+      background: #011D69;
+      border-radius: 10px;
+      padding: 8% 0; }
+      #dataStatIndex .mainLeft .mLBottom h4 {
+        font: 22px/30px "";
+        color: #fff;
+        margin-left: 8%;
+        margin-bottom: 10px; }
+      #dataStatIndex .mainLeft .mLBottom .list_item {
+        width: 100%; }
+        #dataStatIndex .mainLeft .mLBottom .list_item span {
+          display: block;
+          color: #fff;
+          margin-left: 8%;
+          font-size: 14px;
+          margin-bottom: 10px; }
+        #dataStatIndex .mainLeft .mLBottom .list_item .progress {
+          width: 84%;
+          margin: auto;
+          margin-bottom: 10px;
+          position: relative;
+          cursor: pointer; }
+          #dataStatIndex .mainLeft .mLBottom .list_item .progress .p_l {
+            max-width: 79%;
+            height: 15px;
+            float: left; }
+            #dataStatIndex .mainLeft .mLBottom .list_item .progress .p_l b {
+              width: 10%;
+              display: block;
+              float: left;
+              height: 15px;
+              background: #FF6803; }
+            #dataStatIndex .mainLeft .mLBottom .list_item .progress .p_l i {
+              width: 10%;
+              display: block;
+              float: left;
+              height: 15px;
+              background: #FFA303; }
+          #dataStatIndex .mainLeft .mLBottom .list_item .progress .p_r {
+            float: left;
+            color: #fff;
+            font: 12px/15px ""; }
+          #dataStatIndex .mainLeft .mLBottom .list_item .progress .p_side {
+            position: absolute;
+            left: 40%;
+            top: -150px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            z-index: 33;
+            padding: 15px;
+            display: none; }
+            #dataStatIndex .mainLeft .mLBottom .list_item .progress .p_side h5 {
+              display: block;
+              font-size: 14px;
+              color: #fff;
+              height: 30px;
+              line-height: 30px; }
+              #dataStatIndex .mainLeft .mLBottom .list_item .progress .p_side h5 i {
+                float: left;
+                display: block;
+                background: #FF6803;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                margin-top: 10px;
+                margin-right: 10px; }
+              #dataStatIndex .mainLeft .mLBottom .list_item .progress .p_side h5 s {
+                float: left;
+                display: block;
+                background: #FFA303;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                margin-top: 10px;
+                margin-right: 10px; }
+            #dataStatIndex .mainLeft .mLBottom .list_item .progress .p_side span {
+              display: block;
+              margin-left: 10px;
+              font-family: 'numbersettting';
+              font-size: 22px;
+              color: #fff; }
+        #dataStatIndex .mainLeft .mLBottom .list_item .progress:hover .p_side {
+          display: block; }
+  #dataStatIndex .mainCenter {
+    width: 50%;
+    float: left; }
+    #dataStatIndex .mainCenter .mCTop {
+      width: 100%; }
+      #dataStatIndex .mainCenter .mCTop h4 {
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 38px;
+        color: #fff;
+        margin-bottom: 10px;
+        font-weight: 400; }
+      #dataStatIndex .mainCenter .mCTop .numshow {
+        width: 100%;
+        height: 76px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px; }
+        #dataStatIndex .mainCenter .mCTop .numshow b {
+          display: block;
+          width: 58px;
+          height: 76px;
+          float: left;
+          font-size: 38px;
+          line-height: 76px;
+          color: #fff;
+          text-align: center;
+          font-family: 'numbersettting';
+          font-weight: 700; }
+        #dataStatIndex .mainCenter .mCTop .numshow .active {
+          background: url("../icon/num.png") no-repeat center;
+          width: 58px;
+          height: 76px; }
+    #dataStatIndex .mainCenter .mCCenter {
+      width: 100%; }
+      #dataStatIndex .mainCenter .mCCenter h5 {
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 18px;
+        color: #fff;
+        margin-bottom: 10px; }
+      #dataStatIndex .mainCenter .mCCenter span {
+        width: 100%;
+        display: block;
+        font-size: 26px;
+        text-align: center;
+        color: #fff;
+        font-family: 'numbersettting'; }
+  #dataStatIndex .mainRight {
+    width: 25%;
+    float: left; }
+    #dataStatIndex .mainRight .mRtop {
+      width: 100%;
+      background: #011D69;
+      border-radius: 10px;
+      padding: 8% 0;
+      margin-bottom: 10px; }
+      #dataStatIndex .mainRight .mRtop h4 {
+        font: 24px/30px "";
+        color: #fff;
+        margin-left: 8%;
+        margin-bottom: 10px; }
+      #dataStatIndex .mainRight .mRtop span {
+        display: block;
+        margin-left: 8%;
+        color: #fff;
+        font-size: 36px;
+        font-family: 'numbersettting'; }
+    #dataStatIndex .mainRight .mRCenter {
+      width: 100%;
+      background: #011D69;
+      border-radius: 10px;
+      padding: 8% 0;
+      margin-bottom: 10px; }
+    #dataStatIndex .mainRight .mRBottom {
+      width: 100%;
+      background: #011D69;
+      border-radius: 10px;
+      padding: 1% 0; }
+      #dataStatIndex .mainRight .mRBottom h4 {
+        font: 20px/30px "";
+        color: #fff;
+        margin-left: 8%;
+        margin-bottom: 10px;
+        padding-top: 10px; }
+      #dataStatIndex .mainRight .mRBottom #container {
+        width: 100%;
+        height: 300px; }
+
+/*# sourceMappingURL=dataIndex.css.map */

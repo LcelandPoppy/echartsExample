@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/data.css" />
+		<link rel="stylesheet" href="css/iview.min.css" />
+		<link rel="stylesheet" href="layui/css/layui.css" />
+		<script type="text/javascript" src="js/jquery.min.js" ></script>		
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<script type="text/javascript" src="js/iview.min.js" ></script>
+		<script type="text/javascript" src="js/ajax.js" ></script>
+		<script type="text/javascript" src="js/echarts.min.js" ></script>
+		<script type="text/javascript" src="js/public.js" ></script>
+		<script type="text/javascript" src="layui/layui.all.js" ></script>
+		<script type="text/javascript" src="js/resource.js" ></script>
+		<title>资源总况</title>
+	</head>
+	<body>
+		<div id="dataL">
+			<div class="margin">
+				<!--访问量概况-->
+				<div class="pageView">
+					<div class="p_v_l">
+						<div class="title">
+							<span>访问量概况</span>
+							<Col span="12">
+					            <Date-Picker  @on-change="handleChange" type="date" :value='value3' placeholder="请选择时间" style="width: 200px"></Date-Picker>
+					        </Col>
+							<b @click="refresView()"><img src="icon/refresh.png"/>刷新</b>
+						</div>
+						<div class="x_title">
+							<span><i>今日访问</i><b>{{todayTotal}}</b></span>
+							<span><i>昨日访问</i><s>{{yesTotal}}</s></span>
+						</div>
+						<div class="p_v_l_main">
+							<div class="l">
+								<div class="tips">
+									 <span><b></b>昨天访问量</span>
+								     <span><i></i>今日访问量</span>
+								</div>
+								<div id="top" style="width:100%;height:300px;"></div>
+							</div>
+							<div class="r">
+								<div class="r_item">
+									<span>PC端访问</span>
+									<i>{{pcToday}}</i>
+									<s>昨日<b>{{pcYesday}}</b></s>
+								</div>
+								<div class="r_item">
+									<span>公众号访问</span>
+									<i>{{wxToday}}</i>
+									<s>昨日<b>{{wxYesday}}</b></s>
+								</div>
+								<div class="r_item">
+									<span>安卓端访问</span>
+									<i>{{andToday}}</i>
+									<s>昨日<b>{{andYesday}}</b></s>
+								</div>
+								<div class="r_item">
+									<span>IOS端访问</span>
+									<i>{{iosToday}}</i>
+									<s>昨日<b>{{iosYesday}}</b></s>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="p_v_r">
+						<div class="title">
+							<h4>季度访问量总览</h4>
+							<span @click="prevQuarter()">上个季度</span>
+						</div>
+						<div class="x_title">{{jidu}}</div>
+						<div id="right" style="width:90%;height:330px;margin:auto;"></div>
+					</div>
+				</div>
+				<!--用户登录统计-->
+				<div class="userLogin">
+					<div class="title">
+						<h4>用户登录统计</h4>
+						<span @click="loginAdd()"><img src="icon/refresh.png"/>刷新</span>
+					</div>
+					<div class="x_title">
+						<div class="l">
+							用户总数 <span>{{usercount}}</span>
+						</div>
+						<div class="r">
+							<span><em></em>IOS端登录</span>
+							<span><s></s>安卓端登录</span>
+							<span><b></b>公众号登录</span>
+							<span><i></i>PC端登录</span>
+						</div>
+					</div>
+					<div id="userlogin" style="width:100%;height:400px;border-bottom:1px soild #d9d9d9;"></div>
+					<i class="line"></i>
+					<div id="newAdd" style="width:100%;height:400px;"></div>
+				</div>
+				<!--资源总览-->
+				<div class="ResourcesOverview">
+					<div class="title">
+						<span>资源总览</span>
+					</div>
+					<div class="main_top">
+						<div class="top_l">
+							<div class="x_title">
+								<span>资源总数</span>
+								<i>{{resourceTotal}}</i>
+							</div>
+							<div id="rose" style="width:100%;height:400px;"></div>
+						</div>
+						<div class="top_r">
+							<div class="x_title">
+								<span>本月新增</span>
+								<i>{{newadd}}</i>
+							</div>
+							<div class="x_list">
+								<div class="list_item" v-for="(todo,index) in list" v-if="todo.resourceTags!=null">
+									<span>{{todo.resourceTags}}</span>
+									<i>{{todo.count}}</i>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="titlel">
+						<span>最近新增</span>
+					</div>
+					<div class="tableInfor">
+					    <div class="tableTitle">
+					    	<span>名称</span>
+					    	<span>学级</span>
+					    	<span>科目</span>
+					    	<span>教材版本</span>
+					    	<span>年级</span>
+					    	<span>教材类型</span>
+					    	<span>上传者</span>
+					    	<span>上传时间</span>
+					    </div>
+					    <div class="tableItem" v-for="(todo,index) in resourceList">
+					    	<span>{{todo.resourceTitle}}</span>
+					    	<span>{{todo.phase==1?'小学':todo.phase==2?'初中':todo.phase==3?'高中':'资料'}}</span>
+					    	<span>{{todo.subjectName}}</span>
+					    	<span>{{todo.textVersion}}</span>
+					    	<span>{{todo.gradeType}}</span>
+					    	<span>{{todo.resourceTags}}</span>
+					    	<span>{{todo.resourceAuthor==null?'智慧校园':todo.resourceAuthor}}</span>
+					    	<span>{{todo.resourceCreatetime}}</span>
+					    </div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<script>
+			var vue=new Vue({
+				el:"#dataL",
+				data: function() {
+					return {
+						    list: [],
+							methods:[],
+							max:200,
+							pcToday:0,
+							pcYesday:0,
+							wxToday:0,
+							wxYesday:0,
+							andToday:0,
+							andYesday:0,
+							iosToday:0,
+							iosYesday:0,
+							todayTotal:0,
+							yesTotal:0,
+							jidu:'',
+							usercount:0,
+							resourceTotal:0,
+							newadd:0,
+							theLatestList:[],
+							resourceList:[],
+							value3:''
+							
+						}
+					},
+				mounted: function() {
+					var that=this;
+					var today=new Date().getDate();
+					layer.load();
+			        getReaourceList(function(data){
+			          	that.resourceList=data.data;
+			        })
+				},
+				methods: {
+					refresView:function(){
+						viewPage();
+					},
+			        loginAdd:function(){
+			        	loginAddNew();
+			        },
+			        prevQuarter:function(){
+			        	visitsQuarter(1);
+			        },
+			        handleChange (date) {
+			        	layer.load();
+			        	    this.pcToday=0,
+							this.pcYesday=0,
+							this.wxToday=0,
+							this.wxYesday=0,
+							this.andToday=0,
+							this.andYesday=0,
+							this.iosToday=0,
+							this.iosYesday=0,
+							this.todayTotal=0,
+							this.yesTotal=0,
+		                this.value3 = date;
+		                console.log(date);
+		                viewPageTwo(date);
+		            },
+			
+				}
+			});
+		</script>
+	</body>
+</html>

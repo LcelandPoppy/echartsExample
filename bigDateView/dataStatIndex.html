@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/dataIndex.css" />
+		<link rel="stylesheet" href="css/iview.min.css" />
+		<script type="text/javascript" src="js/jquery.min.js" ></script>		
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<script type="text/javascript" src="js/iview.min.js" ></script>
+		<script type="text/javascript" src="js/ajax.js" ></script>
+		<script type="text/javascript" src="js/echarts.min.js" ></script>
+		<script type="text/javascript" src="js/public.js" ></script>
+		<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+        <script type="text/javascript" src="js/index.js" ></script>
+		<title>数据统计</title>
+	</head>
+	<body>
+		<div id="dataStatIndex">
+			<div class="margin clear">
+				<!--页面左边-->
+				<div class="mainLeft">
+					<div class="mLTop">
+						<!--左侧边栏第一块的左边-->
+						<div class='mltl c'>
+							<!--顶部-->
+							<div class="t">
+								<div>
+									<span>学生总数</span>
+									<b>{{studentTotal}}</b>
+								</div>
+								<i></i>
+							</div>
+							<!--中间-->
+							<div class="cc">
+								<div>
+									<span>当前在线</span>
+									<b>{{studentNum}}</b>
+								</div>
+								<i></i>
+							</div>
+							<!--底部-->
+							<div class="b">
+								<div>
+									<span>今日活跃</span>
+									<b>{{stuTodayAct}}</b>
+								</div>
+								<div>
+									<span>本月活跃</span>
+									<b>{{stuMonthAct}}</b>
+								</div>
+								<i></i>
+							</div>
+						</div>
+						<!--左侧边栏第一块的右边-->
+						<div class='mltr c'>
+							<!--顶部-->
+							<div class="t">
+								<div>
+									<span>教师总数</span>
+									<b>{{teachTotal}}</b>
+								</div>
+							</div>
+							<!--中间-->
+							<div class="cc">
+								<div>
+									<span>当前在线</span>
+									<b>{{teachNum}}</b>
+								</div>
+							</div>
+							<!--底部-->
+							<div class="b">
+								<div>
+									<span>今日活跃</span>
+									<b>{{teachTodayAct}}</b>
+								</div>
+								<div>
+									<span>本月活跃</span>
+									<b>{{teachMonthAct}}</b>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="mLCenter">
+						<h4>在线趋势</h4>
+						<div id="online" style="width:100%;height:150px;"></div>
+					</div>
+					<div class="mLBottom">
+						<h4>学校人数排行榜</h4>
+						<div class="list_item" v-for="(todo,index) in rankingList" v-if="index<4">
+							<span v-text="todo.schoolName"></span>
+							<div class="progress clear" >
+								<div class="p_l" :style="{width:todo.total/onetotal*100+'%'}">
+									<b :style="{width:todo.studentNum/todo.total*100+'%'}"></b>
+									<i :style="{width:todo.teachNum/todo.total*100+'%'}"></i>
+								</div>
+								<div class="p_r">{{todo.total}}人</div>
+								<div class="p_side">
+									<h5><i></i>学生总数</h5>
+									<span>{{todo.studentNum}}人</span>
+									<h5><s></s>教师总数</h5>
+									<span>{{todo.teachNum}}人</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--页面中间-->
+				<div class="mainCenter">
+					<div class="mCTop">
+						<h4>本月活跃用户</h4>
+						<div class="numshow" v-if="numList.length!=0">
+							<b v-for="(todo,index) in numList" :class="todo==','?'':'active'" v-text="todo"></b>
+						</div>
+					</div>
+					<div class="mCCenter">
+						<h5>今日活跃用户</h5>
+						<span>{{todayActivityTotal}}</span>
+					</div>
+					<div class="mCbottom">
+						<div id="map" style="width:120%;height:550px;margin-left:-10%;"></div>
+					</div>
+				</div>
+				<!--页面右边-->
+				<div class="mainRight">
+					<div class="mRtop">
+						<h4>资源总数:</h4>
+						<span>{{resourceTotal}}</span>
+					</div>
+					<div class="mRCenter">
+						<div id="compare" style="width:100%;height:250px;"></div>
+					</div>
+					<div class="mRBottom">
+						<h4>资源类别比</h4>
+						<div id="container" style="width:100%;height: 330px"></div>
+					</div>
+				</div>
+			</div>
+		</div>    
+		<script>
+			var vue=new Vue({
+				el:"#dataStatIndex",
+				data:function(){
+					return{
+						num:0,
+						numList:[],
+						rankingList:[],
+						onetotal:0,
+						resourceTotal:0,
+						teachNum:0,
+						studentNum:0,
+						studentTotal:0,
+						teachTotal:0,
+						todayActivityTotal:0,
+						stuTodayAct:0,
+						stuMonthAct:0,
+						teachTodayAct:0,
+						teachMonthAct:0,	
+					}
+				},
+				mounted:function(){
+					var that=this;
+					//学校统计
+					schoolStatistics(function(data){
+//						console.log(data);
+						that.studentTotal=data.studentCount;
+						that.teachTotal=data.teachCount;
+						that.onetotal=data.data[0].studentCount+data.data[0].teacherCount;
+					    for(var i=0;i<data.data.length;i++){
+					    	that.rankingList.push({
+					    		schoolName:data.data[i].company,
+								teachNum:data.data[i].teacherCount,
+								studentNum:data.data[i].studentCount,
+								total:data.data[i].teacherCount+data.data[i].studentCount
+					    	})
+					    }
+					});
+					//本月和当天的访问量
+					monthDayAccess(function(data){
+//						console.log(data);
+						for(var i=0;i<data.dayData.length;i++){
+							if(data.dayData[i].stringParamC==1){
+								that.stuTodayAct=data.dayData[i].userCount;
+							}else{
+								that.teachTodayAct=data.dayData[i].userCount;
+							}
+						}
+						for(var i=0;i<data.monthData.length;i++){
+							if(data.monthData[i].stringParamC==1){
+								that.stuMonthAct=data.monthData[i].userCount;
+							}else{
+								that.teachMonthAct=data.monthData[i].userCount;
+							}
+						};
+						that.todayActivityTotal=that.stuTodayAct+that.teachTodayAct;
+						that.num=that.stuMonthAct+that.teachMonthAct;
+						var str=outputmoney(that.num).split(".")[0];
+					    that.numList=str.split("");
+					});
+				},
+				methods:{
+				}
+			});
+		</script>
+	</body>
+</html>

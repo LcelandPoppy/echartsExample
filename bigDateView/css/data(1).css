@@ -1,0 +1,478 @@
+body, html {
+  width: 100%;
+  height: 100%;
+  background: #F7F7F7; }
+
+.margin {
+  width: 95%;
+  margin: auto; }
+
+#dataL {
+  width: 100%;
+  background: #F7F7F7; }
+  #dataL .pageView {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    overflow: hidden;
+    background: #F7F7F7; }
+    #dataL .pageView .p_v_l {
+      width: 65%;
+      float: left;
+      margin-right: 2%;
+      background: #fff; }
+      #dataL .pageView .p_v_l .title {
+        width: 95%;
+        margin: auto;
+        border-bottom: 1px solid #d9d9d9;
+        height: 45px;
+        font: 16px/45px ""; }
+        #dataL .pageView .p_v_l .title > span {
+          display: block;
+          float: left;
+          margin-right: 10px; }
+        #dataL .pageView .p_v_l .title b {
+          float: right;
+          color: #037AFF;
+          font: 14px/45px "";
+          cursor: pointer; }
+          #dataL .pageView .p_v_l .title b img {
+            width: 14px;
+            height: 14px;
+            margin-right: 5px; }
+      #dataL .pageView .p_v_l .x_title {
+        width: 95%;
+        margin: auto;
+        height: 30px;
+        font: 14px/30px "";
+        color: #000; }
+        #dataL .pageView .p_v_l .x_title span {
+          display: inline-block;
+          margin-right: 15px; }
+        #dataL .pageView .p_v_l .x_title b {
+          font-family: 'numbersettting';
+          font-size: 20px;
+          line-height: 30px;
+          display: inline-block;
+          margin-left: 10px;
+          color: #037AFF; }
+        #dataL .pageView .p_v_l .x_title s {
+          font-family: 'numbersettting';
+          font-size: 20px;
+          line-height: 30px;
+          display: inline-block;
+          margin-left: 10px;
+          color: #999; }
+      #dataL .pageView .p_v_l .p_v_l_main {
+        width: 95%;
+        margin: auto;
+        overflow: hidden; }
+        #dataL .pageView .p_v_l .p_v_l_main .l {
+          width: 50%;
+          float: left; }
+          #dataL .pageView .p_v_l .p_v_l_main .l .tips {
+            height: 30px;
+            margin-top: 10px; }
+            #dataL .pageView .p_v_l .p_v_l_main .l .tips span {
+              display: block;
+              float: right;
+              width: 100px;
+              margin-left: 15px;
+              font: 14px/30px ""; }
+              #dataL .pageView .p_v_l .p_v_l_main .l .tips span i {
+                display: block;
+                width: 20px;
+                height: 2px;
+                background: #037AFF;
+                float: left;
+                margin-top: 15px;
+                margin-right: 10px; }
+              #dataL .pageView .p_v_l .p_v_l_main .l .tips span b {
+                display: block;
+                width: 20px;
+                height: 1px;
+                border-top: 2px dashed #999;
+                float: left;
+                margin-top: 15px;
+                margin-right: 10px; }
+        #dataL .pageView .p_v_l .p_v_l_main .r {
+          width: 50%;
+          float: right;
+          margin-top: 93px; }
+          #dataL .pageView .p_v_l .p_v_l_main .r .r_item {
+            width: 50%;
+            float: left;
+            margin-bottom: 10px; }
+            #dataL .pageView .p_v_l .p_v_l_main .r .r_item span {
+              display: block;
+              font-size: 18px;
+              color: #000;
+              font-weight: 700;
+              margin-left: 25px; }
+            #dataL .pageView .p_v_l .p_v_l_main .r .r_item i {
+              display: block;
+              color: #037AFF;
+              font-family: 'numbersettting';
+              font-size: 22px;
+              line-height: 50px;
+              font-weight: 700;
+              margin-left: 25px; }
+            #dataL .pageView .p_v_l .p_v_l_main .r .r_item s {
+              display: block;
+              color: #999;
+              font-size: 14px;
+              margin-left: 25px; }
+              #dataL .pageView .p_v_l .p_v_l_main .r .r_item s b {
+                font-family: 'numbersettting';
+                display: inline-block;
+                margin-left: 10px; }
+    #dataL .pageView .p_v_r {
+      width: 33%;
+      float: left;
+      background: #fff; }
+      #dataL .pageView .p_v_r .title {
+        width: 90%;
+        margin: auto;
+        border-bottom: 1px solid #d9d9d9;
+        height: 45px;
+        font: 16px/45px ""; }
+        #dataL .pageView .p_v_r .title h4 {
+          display: block;
+          float: left;
+          margin-right: 10px;
+          font-weight: 200; }
+        #dataL .pageView .p_v_r .title span {
+          float: right;
+          color: #037AFF;
+          font: 14px/45px "";
+          cursor: pointer; }
+      #dataL .pageView .p_v_r .x_title {
+        width: 90%;
+        margin: auto;
+        height: 40px;
+        text-align: center;
+        font: 14px/40px ""; }
+  #dataL .userLogin {
+    width: 100%;
+    background: #fff;
+    margin-bottom: 10px; }
+    #dataL .userLogin .title {
+      width: 95%;
+      margin: auto;
+      border-bottom: 1px solid #d9d9d9;
+      height: 45px;
+      font: 16px/45px ""; }
+      #dataL .userLogin .title h4 {
+        display: block;
+        float: left;
+        margin-right: 10px;
+        font-weight: 200; }
+      #dataL .userLogin .title span {
+        float: right;
+        color: #037AFF;
+        font: 14px/45px "";
+        cursor: pointer; }
+        #dataL .userLogin .title span img {
+          width: 14px;
+          height: 14px;
+          margin-right: 5px; }
+    #dataL .userLogin .x_title {
+      width: 95%;
+      margin: auto;
+      height: 60px; }
+      #dataL .userLogin .x_title .l {
+        float: left;
+        font: 14px/60px ""; }
+        #dataL .userLogin .x_title .l span {
+          font-size: 22px;
+          color: #037AFF;
+          font-family: 'numbersettting';
+          letter-spacing: 2px;
+          display: inline-block;
+          margin-left: 10px; }
+      #dataL .userLogin .x_title .r {
+        float: right;
+        font: 14px/60px ""; }
+        #dataL .userLogin .x_title .r span {
+          display: block;
+          float: right;
+          width: 125px; }
+          #dataL .userLogin .x_title .r span i {
+            display: block;
+            width: 15px;
+            height: 15px;
+            background: #026CE6;
+            float: left;
+            margin-top: 22px;
+            margin-right: 10px; }
+          #dataL .userLogin .x_title .r span b {
+            display: block;
+            width: 15px;
+            height: 15px;
+            background: #02A1E6;
+            float: left;
+            margin-top: 22px;
+            margin-right: 10px; }
+          #dataL .userLogin .x_title .r span s {
+            display: block;
+            width: 15px;
+            height: 15px;
+            background: #E69202;
+            float: left;
+            margin-top: 22px;
+            margin-right: 10px; }
+          #dataL .userLogin .x_title .r span em {
+            display: block;
+            width: 15px;
+            height: 15px;
+            background: #E65D02;
+            float: left;
+            margin-top: 22px;
+            margin-right: 10px; }
+    #dataL .userLogin .line {
+      width: 80%;
+      margin: 10px auto;
+      display: block;
+      height: 1px;
+      border-bottom: 1px solid #d9d9d9; }
+  #dataL .responseTime {
+    width: 100%;
+    background: #fff;
+    margin-bottom: 10px;
+    margin-top: 10px; }
+    #dataL .responseTime .title {
+      width: 95%;
+      margin: auto;
+      border-bottom: 1px solid #d9d9d9;
+      height: 45px;
+      font: 16px/45px ""; }
+      #dataL .responseTime .title .ivu-date-picker {
+        float: right;
+        margin-top: 10px; }
+    #dataL .responseTime .tips {
+      width: 95%;
+      height: 30px;
+      margin: auto; }
+      #dataL .responseTime .tips span {
+        display: block;
+        float: right;
+        height: 30px;
+        width: 100px;
+        line-height: 30px;
+        font-size: 14px;
+        margin-left: 10px; }
+        #dataL .responseTime .tips span i {
+          display: block;
+          width: 35px;
+          height: 2px;
+          background: #A604F1;
+          float: left;
+          margin-top: 15px;
+          margin-right: 10px; }
+        #dataL .responseTime .tips span b {
+          display: block;
+          width: 35px;
+          height: 2px;
+          background: #03B5FF;
+          float: left;
+          margin-top: 15px;
+          margin-right: 10px; }
+        #dataL .responseTime .tips span s {
+          display: block;
+          width: 35px;
+          height: 2px;
+          background: #FFA303;
+          float: left;
+          margin-top: 15px;
+          margin-right: 10px; }
+        #dataL .responseTime .tips span em {
+          display: block;
+          width: 35px;
+          height: 2px;
+          background: #FF6803;
+          float: left;
+          margin-top: 15px;
+          margin-right: 10px; }
+  #dataL .ResourcesOverview {
+    width: 100%;
+    background: #fff;
+    margin-bottom: 10px; }
+    #dataL .ResourcesOverview .title {
+      width: 95%;
+      margin: auto;
+      border-bottom: 1px solid #d9d9d9;
+      height: 45px;
+      font: 16px/45px ""; }
+    #dataL .ResourcesOverview .titlel {
+      width: 95%;
+      margin: auto;
+      border-top: 1px solid #d9d9d9;
+      height: 45px;
+      font: 16px/45px ""; }
+    #dataL .ResourcesOverview .main_top {
+      width: 95%;
+      margin: auto;
+      overflow: hidden; }
+      #dataL .ResourcesOverview .main_top .top_l {
+        width: 50%;
+        float: left; }
+      #dataL .ResourcesOverview .main_top .top_r {
+        width: 50%;
+        float: right; }
+        #dataL .ResourcesOverview .main_top .top_r .x_list {
+          width: 100%;
+          overflow: hidden;
+          margin-top: 25px; }
+          #dataL .ResourcesOverview .main_top .top_r .x_list .list_item {
+            width: 25%;
+            float: left;
+            margin-bottom: 20px; }
+            #dataL .ResourcesOverview .main_top .top_r .x_list .list_item span {
+              display: block;
+              font: 14px/45px ""; }
+            #dataL .ResourcesOverview .main_top .top_r .x_list .list_item i {
+              font-size: 18px;
+              font-family: 'numbersettting';
+              color: #037AFF;
+              font-weight: 700;
+              letter-spacing: 2px; }
+      #dataL .ResourcesOverview .main_top .x_title {
+        width: 100%;
+        height: 45px;
+        font: 14px/45px ""; }
+        #dataL .ResourcesOverview .main_top .x_title i {
+          font-size: 22px;
+          font-family: 'numbersettting';
+          color: #037AFF;
+          font-weight: 700;
+          letter-spacing: 2px; }
+    #dataL .ResourcesOverview .tableInfor {
+      width: 95%;
+      margin: auto;
+      padding-bottom: 15px; }
+      #dataL .ResourcesOverview .tableInfor .tableTitle {
+        width: 100%;
+        height: 45px; }
+        #dataL .ResourcesOverview .tableInfor .tableTitle span {
+          display: block;
+          font: 700 14px/45px "";
+          width: 12.5%;
+          text-align: center;
+          float: left; }
+      #dataL .ResourcesOverview .tableInfor .tableItem {
+        width: 100%;
+        overflow: hidden;
+        border-bottom: 1px solid #d9d9d9; }
+        #dataL .ResourcesOverview .tableInfor .tableItem span {
+          display: block;
+          font-size: 12px;
+          width: 12.5%;
+          text-align: center;
+          float: left;
+          margin: 20px auto; }
+        #dataL .ResourcesOverview .tableInfor .tableItem span:nth-child(1) {
+          color: #037AFF; }
+  #dataL .MethodsContrast {
+    width: 100%;
+    background: #fff;
+    margin-bottom: 30px;
+    padding-bottom: 10px; }
+    #dataL .MethodsContrast .title {
+      width: 95%;
+      margin: auto;
+      border-bottom: 1px solid #d9d9d9;
+      height: 45px;
+      font: 16px/45px ""; }
+    #dataL .MethodsContrast .x_title {
+      width: 95%;
+      margin: auto;
+      border-top: 1px solid #d9d9d9;
+      height: 45px;
+      font: 16px/45px ""; }
+      #dataL .MethodsContrast .x_title h4 {
+        float: left;
+        font-weight: 200; }
+      #dataL .MethodsContrast .x_title div {
+        float: right;
+        font: 14px/45px ""; }
+        #dataL .MethodsContrast .x_title div span {
+          display: block;
+          width: 100px;
+          float: right;
+          color: #666; }
+          #dataL .MethodsContrast .x_title div span i {
+            display: block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #026CE6;
+            float: left;
+            margin-top: 16px;
+            margin-right: 10px; }
+          #dataL .MethodsContrast .x_title div span b {
+            display: block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #FF7A1E;
+            float: left;
+            margin-top: 16px;
+            margin-right: 10px; }
+    #dataL .MethodsContrast .methodsTime {
+      width: 95%;
+      margin: 30px auto;
+      overflow: hidden; }
+      #dataL .MethodsContrast .methodsTime .methodsTitle {
+        width: 95%;
+        margin: auto;
+        height: 45px;
+        border-bottom: 1px solid #d9d9d9; }
+        #dataL .MethodsContrast .methodsTime .methodsTitle span {
+          display: block;
+          width: 25%;
+          font: 700 16px/45px "";
+          float: left; }
+      #dataL .MethodsContrast .methodsTime .methodsList {
+        width: 95%;
+        margin: auto;
+        overflow: hidden; }
+        #dataL .MethodsContrast .methodsTime .methodsList .list_item {
+          width: 50%;
+          float: left;
+          height: 70px;
+          border-bottom: 1px solid #d9d9d9; }
+          #dataL .MethodsContrast .methodsTime .methodsList .list_item .item_title {
+            width: 50%;
+            float: left;
+            font: 14px/70px "";
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap; }
+          #dataL .MethodsContrast .methodsTime .methodsList .list_item .item_progress {
+            width: 50%;
+            float: left; }
+            #dataL .MethodsContrast .methodsTime .methodsList .list_item .item_progress span {
+              display: block;
+              width: 100%;
+              height: 13px;
+              margin-top: 15px; }
+              #dataL .MethodsContrast .methodsTime .methodsList .list_item .item_progress span b {
+                display: block;
+                max-width: 75%;
+                height: 13px;
+                background: #026CE6;
+                border-radius: 10px;
+                float: left;
+                margin-right: 5px; }
+              #dataL .MethodsContrast .methodsTime .methodsList .list_item .item_progress span s {
+                display: block;
+                max-width: 75%;
+                height: 13px;
+                background: #FF7A1E;
+                border-radius: 10px;
+                float: left;
+                margin-right: 5px; }
+              #dataL .MethodsContrast .methodsTime .methodsList .list_item .item_progress span i {
+                font: 12px/13px ""; }
+
+/*# sourceMappingURL=data.css.map */

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/data.css" />
+		<link rel="stylesheet" href="css/iview.min.css" />
+		<link rel="stylesheet" href="layui/css/layui.css" />
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<script type="text/javascript" src="js/iview.min.js" ></script>
+		<script type="text/javascript" src="js/ajax.js" ></script>
+		<script type="text/javascript" src="js/echarts.min.js" ></script>
+		<script type="text/javascript" src="js/public.js" ></script>
+		<script type="text/javascript" src="layui/layui.all.js" ></script>
+		<script type="text/javascript" src="js/se.js" ></script>
+		
+		<title>资源总况</title>
+	</head>
+	<body>
+		<div id="dataL">
+			<div class="margin">
+				<!--响应时间-->
+				<div class="responseTime">
+					<div class="title">
+						响应时间
+						<Col span="12">
+				            <Date-Picker type="date" placeholder="请选择时间" @on-change="handleChange" type="date" :value='value3' style="width: 200px"></Date-Picker>
+				        </Col>
+					</div>
+					<div class="tips">
+						<span><em></em>IOS端</span>
+						<span><s></s>安卓端</span>
+						<span><b></b>公众号</span>
+						<span><i></i>pc端</span>
+					</div>
+					<div id="timeResponse" style="width:100%;height:400px;"></div>
+				</div>
+				<!--方法对比-->
+				<div class="MethodsContrast">
+					<div class="title">方法对比</div>
+					<div id="functionContrast" style="width:100%;height:400px;"></div>
+					<div class="x_title">
+						<h4>响应时间对比</h4>
+						<div>
+							<span><b></b>上次响应</span>
+							<span><i></i>本次响应</span>
+						</div>
+					</div>
+					<div class="methodsTime">
+						<div class="methodsTitle">
+							<span>方法名称</span>
+					    	<span>响应时间</span>
+					    	<span>方法名称</span>
+					    	<span>响应时间</span>
+						</div>
+						<div class="methodsList">
+							<div class="list_item" v-for="(todo,index) in methods">
+								<div class="item_title" :title="todo.name">{{todo.name}}</div>
+								<div class="item_progress">
+									<span><b :style="{width:todo.today/max*100+'%'}"></b><i>{{todo.today}}s</i></span>
+									<span><s :style="{width:todo.yesdata/max*100+'%'}"></s><i>{{todo.yesdata}}s</i></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var vue=new Vue({
+				el:"#dataL",
+				data: function() {
+					return {
+						    list: [],
+							methods:[],
+							max:200,
+							jidu:'',
+							usercount:0,
+							resourceTotal:0,
+							newadd:0,
+							theLatestList:[],
+							resourceList:[],
+							value3:''
+							
+						}
+					},
+				mounted: function() {
+					var that=this;
+					var today=new Date().getDate();
+			          differentEndDate(function(data){
+//			          	console.log(data);
+			          	for(var i=0;i<data.data.length;i++){
+			          		if(data.data[i].type==1){
+			          			if(data.data[i].day==today){
+			          				that.pcToday=data.data[i].count;
+			          			}else{
+			          				that.pcYesday=data.data[i].count;
+			          			}
+			          		}else if(data.data[i].type==2){
+			          			if(data.data[i].day==today){
+			          				that.wxToday=data.data[i].count;
+			          			}else{
+			          				that.wxYesday=data.data[i].count;
+			          			}
+			          		}else if(data.data[i].type==3){
+			          			if(data.data[i].day==today){
+			          				that.andToday=data.data[i].count;
+			          			}else{
+			          				that.andYesday=data.data[i].count;
+			          			}
+			          		}else if(data.data[i].type==4){
+			          			if(data.data[i].day==today){
+			          				that.iosToday=data.data[i].count;
+			          			}else{
+			          				that.iosYesday=data.data[i].count;
+			          			}
+			          		}
+			          		if(data.data[i].day==today){
+			          			that.todayTotal+=data.data[i].count;
+			          		}else{
+			          			that.yesTotal+=data.data[i].count;
+			          		}
+			          	}
+			          	
+			          });
+//			          var quarterIn=new Date().getQuarter();
+			          
+			          getReaourceList(function(data){
+//			          	console.log(data);
+			          	that.resourceList=data.data;
+			          })
+				},
+				methods: {
+					refresView:function(){
+						viewPage();
+					},
+			        loginAdd:function(){
+			        	loginAddNew();
+			        },
+			        prevQuarter:function(){
+			        	visitsQuarter(1);
+			        },
+			        handleChange (date){
+			        	layer.load();
+		                this.value3 = date;
+//		                console.log(date);
+		                var arr=date.split("-");
+		                var num=parseInt(arr[2])+1;
+		                if(num<=9){
+		                	num='0'+num;
+		                }else{
+		                	num=num;
+		                }
+		                var end=arr[0]+'-'+arr[1]+'-'+num;
+//		                console.log(end);
+		                reponseTimeTwoShow(date,end);
+		            },
+			
+				}
+			});
+		</script>
+	</body>
+</html>
